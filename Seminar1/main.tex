@@ -99,6 +99,23 @@ a structure of a topological vector bundle, with manifold structure given by an 
 induced from sets $V_x$.
 
 To complete the definition of smooth vector bundle structure on $E$ we need to define
-transition functions. If $g'$ and $g''$ are transition functions for $E_1$ and $E_2$ 
+transition functions. If $g_{xy}'$ and $g_{xy}''$ are transition functions for $E_1$ and $E_2$, then the we define transition functions $g_{xy}(p) = g_{xy}' (p) \oplus g_{xy}'' (p)$ for each $x, y$, and $p \in U_{xy}$).
+It is clear that $g_{xy}$ are smooth and yield linear
+isomorphisms at each point since coordinate representation of $g_{xy}(p)$ is just a block matrix.
+Thus atlas $\{ V_x \mid x \in X \}$ defines a smooth structure on $E$,
+since each chart transition function $\phi_{V_y} \circ \phi_{V_x}^{-1} |_{V_x \cap V_y}: U_{xy} \times \mathbb R^{r+l} \rightarrow U_{xy} \times \mathbb R^{r+l}$ 
+acts smoothly on from first component to first component (since $X$ is a smooth manifold itself)
+and linearly from second component to second component.
+
+Analogues construction works for tensor product $E = E_1 \otimes E_2$,
+but we replace each fiber $\mathbb R^r \oplus \mathbb R^l$ with $\mathbb R^r \otimes \mathbb R^l$
+and define transition functions as $g_{xy}(p) = g_{xy}'(p) \otimes g_{xy}'' (p)$. 
+This construction works by virtue of tensor product of linear isomorphisms being a linear isomorphism of tensor product of underline spaces
+and its coordinate representation depending smoothly
+on coordinates of its tensor multiples.
+
+\section{Problem 4}
+
+For $E_1 \oplus E_2$ and $E_1 \otimes E_2$ see problem 3. If $E = E_1^{\lor 2}$, then transition functions will be of the form $S^2 \phi_i$ (symmetric power of the linear endomorphism).
 
 \end{document}
