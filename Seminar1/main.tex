@@ -18,9 +18,6 @@
 \newtheorem{definition}{Definition}
 \newtheorem{corollary}{Corollary}
 
-\newcommand{\la}{\langle}
-\newcommand{\ra}{\rangle}
-
 \title{Math Methods of Science \\
 Seminar 1}
 \author{Gleb Krasilich}
@@ -32,6 +29,76 @@ Seminar 1}
 
 \section{Problem 1}
 
+Let us show that function $s_1 + s_2$ is smooth and well-defined.
+Let $x \in X$ be an arbitrary point and $U_x$ be a trivializing neighborhood of $x$.
+Without loss of generality we can assume, 
+that $U_x$ is diffeomorphic to some open subset $ U \subset \mathbb R^n$ 
+(by taking an intersection with a chart containing $x$, if necessary).
+Hence $\pi^{-1} (U)$ is diffeomorphic to $U \times \mathbb R^r$.
 
+Now we can define $s_1 + s_2$ in local coordinates as follows: 
+for any $z \in U$ if $s_1(z) = (z, v_1) \in U \times \mathbb R^r$
+and $s_2 (z) = (z, v_2) \in U \times \mathbb R^r$, 
+then $(s_1 + s_2)(z) = (z, v_1 + v_2)$.
+Since $s_1$ and $s_2$ are smooth by definition,
+$s_1 + s_2$ is, obviously, also smooth in our local coordinates.
+
+So the only thing we left to check is that $s_1 + s_2$ is well-defined globally.
+Let $U_x$ and $U_y$ be two trivializing neighborhoods on $X$ with non-empty intersection
+$U_{xy} = U_x \cap U_y$. If $g$ is a transition function on $U_{xy}$ and 
+$p \in U_{xy}$, then $\Phi_x \circ s_i |_{U_x}(p) = (p, v_i)$ and
+$\Phi_y \circ s_i |_{U_y}(p) = (p, u_i)$ where $u_i = g(p) v_i$ by definition of vector bundle.
+On other hand, 
+$\Phi_y \circ (s_1 + s_2) |_{U_y}(p) = (p, g(p)(v_1 + v_2)) = (p, g(p)v_1 + g(p)v_2) = (p, u_1 + u_2)$.
+This indeed shows that map $s_1 + s_2$ is well-defined globally on $X$.
+
+It worth nothing to see that $\pi \circ (s_1 + s_2) = id$. Thus $s_1 + s_2$ is a smooth section.
+
+Similarly we can show that $\alpha s$ is a smooth section for any $\alpha \in \mathbb R$
+and $s \in \Gamma(E)$. First, we define $\alpha s$ locally as 
+$\Phi_x \circ (\alpha s) |_{U_x} (x) = (x, \alpha v)$ for each $x \in X$ and its trivializing neighborhood.
+Then we show that $\alpha s$ is well-defined globally using linearity of transition functions at each point.
+
+\section{Problem 2}
+
+First of all, let us note that $C^\infty (X)$ is indeed a commutative ring with  \\ identity:
+addition and multiplication are defined pointwise with constant 0 and 1 functions being correspondently
+zero and identity elements. From the problem 1 it also follows that $\Gamma (E)$ is additive 
+abelian group.
+
+Given a smooth function $a \in C^\infty (X)$ and a smooth section $s \in \Gamma (E)$,
+we define product $as$ locally as $\Phi_x \circ as |_{U_x} (x) = (x, a(x) v_1)$
+in terms of points of $X$ and their trivializing neighborhoods.
+As we noted in the previous problem, this also shows that $as$ are smooth in local coordinates.
+And again as in a problem 1 we can show that this is a well-defined global construction using pointwise
+linearity of transition functions: for any $x$, $y$, and $p$ in $X$, if $p \in U_{xy}$,
+then $\Phi_{U_y} \circ as |_{U_y} (p) = (p, g(p)(a(p)v_1)) = (p, a(p)g(p)v_1)$.
+
+From the local definition above it is also immediately clear that axioms of module are
+satisfied for any chart. But since transition functions at each point are linear, module
+operations are well defined globally. For example, we can check that $(\alpha + \beta)s = \alpha s + \beta s$
+for each $\alpha, \beta \in C^\infty (X)$ and $s \in \Gamma (E)$ locally compatible on 
+each trivializing neighborhoods intersections: 
+$\Phi_y \circ ((\alpha + \beta) s) |_{U_{xy}} (p) = (p, g(p)((\alpha(p) + \beta(p) v)) = (p, \alpha(p)g(p)v + \beta(p)g(p)v)$.
+
+\section{Problem 3}
+
+Let $\pi_1: E_1 \rightarrow X$ be vector bundle of rank $r$ and 
+$\pi_2: E_2 \rightarrow X$ be a vector bundle of rank $l$.
+First, let us define a direct sum $E = E_1 \oplus E_2$.
+Let us define $E$ as a disjoint union $\bigcup_{x \in X} \{ x \} \times \mathbb R^r \oplus \mathbb R^l$.
+Then for each $x \in X$, if $U_x'$ is a trivializing neighborhood of $x$ for $E_1$
+and $U_x''$ is a corresponding trivializing neighborhood for $E_2$,
+then we define $U_x$ as an intersection $U_x' \cap U_x''$.
+
+Now let $\pi$ be a surjection $\pi: E \rightarrow X, (x, v) \mapsto x$.
+Then $V_x = \pi^{-1} (U_x)$ bears a unique topology, such that $\pi |_{V_x}: V_x \rightarrow U_x$
+is a homeomorphism. So we can equip $E$ with a final topology induced by a family
+of trivial inclusions $i_x: V_x \rightarrow E$ indexed by points of $X$. Thus $E$ has
+a structure of a topological vector bundle, with manifold structure given by an atlas
+induced from sets $V_x$.
+
+To complete the definition of smooth vector bundle structure on $E$ we need to define
+transition functions. If $g'$ and $g''$ are transition functions for $E_1$ and $E_2$ 
 
 \end{document}
