@@ -1,0 +1,58 @@
+\documentclass{article}[14pt]
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyphenat}
+\usepackage{tikz-cd}
+\usetikzlibrary{babel}
+\usepackage{letltxmacro}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usepackage{proof}
+\hyphenation{ма-те-ма-ти-ка вос-ста-нав-ли-вать}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+
+\title{Math Methods of Science \\
+Seminar 2}
+\author{Gleb Krasilich}
+\date{October 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 1}
+
+In the Problem 3 of home task 1 I have already shown that direct sum of vector bundles is a smooth manifold and a vector bundle.
+So the only thing we left to check is that map $f: (x, v_1, v_2) \mapsto (x, v_1 + v_2)$ is a morphism of vector bundles.\
+
+Indeed, the diagram
+\[
+\begin{tikzcd}
+    E \oplus E \arrow[rr, "f"] \arrow[rd, "\tilde{\pi}"] & &  \arrow[ld, "\pi"] E \\
+    & X & \\
+\end{tikzcd}
+\]
+by definition of $f$.
+$f$ is acting linearly fiber wise: if $(v_1, v_2)$ and $(w_1, w_2)$ are vectors in 
+$\mathbb R^r \oplus \mathbb R^r$, then $f((x, v_1 + w_1, v_2 + w_2)) = (x, v_1 + w_1 + v_2 + w_2) = (x, (v_1 + v_2) + (w_1 + w_2))$,
+and $f((x, \alpha v_1, \alpha v_2)) = (x, \alpha v_1 + \alpha v_2) = (x, \alpha (v_1 + v_2))$ for any $\alpha \in \mathbb R$.
+
+Finally, $f$ is surjective on each fiber: for any vector $v$ and point $x \in X$, $(x, v) = f((x, v, 0))$.
+Therefore $f$ has constant rank equal to the rank of $E$ at each fiber.
+So $f$ is a morphism of vector bundles. Q.E.D.
+
+\section{Problem 2}
+
+Let $g: \mathbb R^n \rightarrow T_x X$ be a linear function which maps $(v_1, \dots, v_n)$ to $v_1 \frac{\partial}{\partial x_1} + \dots + v_n \frac{\partial}{\partial x_n}$.
+First, let us show that $g$ is injective. 
+
+
+\end{document}
