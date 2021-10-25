@@ -53,6 +53,73 @@ So $f$ is a morphism of vector bundles. Q.E.D.
 
 Let $g: \mathbb R^n \rightarrow T_x X$ be a linear function which maps $(v_1, \dots, v_n)$ to $v_1 \frac{\partial}{\partial x_1} + \dots + v_n \frac{\partial}{\partial x_n}$.
 First, let us show that $g$ is injective. 
+Indeed, let $v \in \mathbb R^n$ be such, that $g(v)$ is a zero tangent vector at $x$.
+It means that $g(v)(f) = 0$ for each $f \in C^\infty(X)$.
+Let $f_i$ be a smooth extension of $x_i$ from the local coordinate chart to whole $X$.
+Then locally we get $0 = g(v)(f_i) = \sum_{j=1}^n v_j \frac{\partial x_i}{\partial x_j} = v_i$.
+Therefore $v$ is equal to $0$.
+
+Now let us show that $g$ is a surjection.
+For an arbitrary smooth function $f$ let us write down its Taylor polynomial in the local chart centered at $x$:
+$$f(x_1, \dots, x_n) = f(0) + \sum_{i=1}^n \frac{\partial f(0)}{\partial x_i}x_i + \sum_{|\alpha| = 2} h_\alpha (x) x^\alpha$$
+(where $\alpha$ is a composition of a natural number and $h_\alpha$ are some smooth functions).
+If we apply some tangent vector $v_x$ (which will be $v_0$ in the local chart) to such polynomial representation, we get that $v_0(f(0)) = 0$ (since $f(0)$ is a constant function), 
+$v_0(h_{(2, \dots, 0)}x_1^2) = v_0(h_{(2, \dots, 0)}x_1)x_1(0) + h_{(2, \dots, 0)}(0)x_1(0) = 0$ by Leibniz rule
+(similarly for any other composition $\alpha$).
+Thus $v_0(f) = \sum_{i = 1}^n \frac{\partial f(0)}{\partial x_i} v_0(x_i)$ and depends only on values on projection functions $x_i$.
+So any tangent vector $v_x$ has a preimage $(v_0(x_1), \dots, v_0(x_n))$ under map $g$. Q.E.D.
+
+\section{Problem 3}
+
+\subsection{1)}
+
+It is easy to see that $w$ acts linearly on the space $C^\infty (Y)$: 
+$$w(a \gamma) = v(a \gamma \circ f) = a v(\gamma \circ f) = a w(\gamma)$$
+$$w(\gamma + \lambda) = v((\gamma + \lambda) \circ f) = v (\gamma \circ f + \lambda \circ f) = v(\gamma \circ f) + v(\lambda \circ f) = w(\gamma) + w(\lambda)$$
+
+So we left only to check that Leibniz rule is satisficed for $w$.
+Indeed,
+$$w(\gamma \lambda) = v((\gamma \lambda) \circ f) = v((\gamma \circ f)(\lambda \circ f)) = v(\gamma \circ f) \lambda(f(x)) + \gamma(f(x)) v(\lambda \circ f) =$$ 
+$$= w(\gamma) \lambda(y) + \gamma(y) w(\lambda)$$
+Q.E.D.
+
+\subsection{2)}
+(There are typos in the definition of the composition of differentials in the problem statement.)
+
+First, let us take a look at $dg \circ df$.
+If $w \in T_{f(x)}Y$, then $dg(w)(\gamma) = w(\gamma \circ g)$ for any $\gamma \in C^\infty(Z)$.
+If, in turn, $w = df(v)$ for some $v \in T_x X$, then $w(\lambda) = v(\lambda \circ f)$.
+So we get $(dg \circ df)(v)(\gamma) = v((\gamma \circ g) \circ f)$.
+
+From other hand, $d(g \circ f): v(y) \mapsto v(y \circ (g \circ f))$ by definition of differential map.
+It worth mentioning that, since composition of functions is associative, $d(g \circ f) = df \circ dg$ for all smooth functions $f$ and $g$.
+
+\subsection{3)}
+
+It is obvious that $df: T_x X \rightarrow T_{f(x)}Y$ is a linear function for any smooth function $f$.
+Therefore $Tf: TX \rightarrow TY$ is a smooth map between manifolds.
+
+As we already mentioned in the previous subsection, $d(f \circ g) = df \circ dg$,
+thus $T(g \circ f)(x, v) = ((g \circ f)x, d(g \circ f)v) = (g(f(x)), dg(df(v))) = (Tg \circ Tf)(x, v)$.
+
+If we consider that acts as $X \mapsto TX$ on the class of objects in the category $Man$, the only thing we left to check for $T$ being a functor is that $T(id_{X}) = id_{TX}$,
+where $id_Y$ is an identity function on $Y$.
+Indeed, if $X$ is a smooth manifold, $x \in X$ is an arbitrary point, $v \in T_x X$ is an arbitrary tangent vector, and \\ $f: X \rightarrow X$ is an arbitrary smooth function,
+then $d(id_X)(v)(g) = v(g \circ id_X) = v(g)$, so $d(id_X)$ is identity map on $T_x X$.
+Therefore $T (id_X) (x, v) = (id_X (x), d(id_X)v) = (x, v)$, thus $T (id_X) = id_{TX}$. Q.E.D.
+
+\section{Problem 4}
+
+Let us check the images of basis vectors $\frac{\partial}{\partial x_i}$ under the map $df$.
+Given some arbitrary function $\gamma \in C^\infty (Y)$, 
+$$df(\frac{\partial}{\partial x_i})(\gamma) = \frac{\partial}{\partial x_i} (\gamma \circ f) \gamma' f' e_i$$ in local coordinates.
+(Here $e_i$ is $i$-th basis vector of $\mathbb R^m$, and the whole expression is just a consequent of chain rule from analysis.)
+Multiplying matrices and vectors we receive 
+$$df(\frac{\partial}{\partial x_i})(\gamma) = \sum_{j=1}^n \frac{\partial f_j}{\partial x_i}(x) \frac{\partial}{\partial y_j}\gamma$$
+which yields exactly desired matrix representation of $df$ in the local coordinates.
+
+\section{Problem 5}
+
 
 
 \end{document}
